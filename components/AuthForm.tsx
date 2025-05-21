@@ -69,7 +69,7 @@ const AuthForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-amber-800 text-white py-2 rounded "
+        className="w-full bg-amber-800 text-white py-2 rounded cursor-pointer "
       >
         {isSubmitting ? "Logging in..." : "Login"}
       </button>
