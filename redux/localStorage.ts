@@ -1,6 +1,8 @@
-export const loadState = () => {
+export const loadState = (userEmail: string) => {
+  if (typeof window === "undefined") return undefined;
   try {
-    const serializedState = localStorage.getItem("authState");
+    const key = `authState_${userEmail}`;
+    const serializedState = localStorage.getItem(key);
     if (serializedState === null) {
       return undefined;
     }
@@ -10,10 +12,12 @@ export const loadState = () => {
     return undefined;
   }
 };
-export const saveState = (state :any) => {
+export const saveState = (userEmail: string, state: any) => {
+  if (typeof window === "undefined") return;
   try {
+    const key = `authState_${userEmail}`;
     const serializedState = JSON.stringify(state);
-    localStorage.setItem("authState", serializedState);
+    localStorage.setItem(key, serializedState);
   } catch (err) {
     console.error("could not save state", err);
   }

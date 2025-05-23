@@ -32,7 +32,7 @@ const AuthForm = () => {
       reset();
       router.push("/dashboard");
     } catch (err) {
-      dispatch(loginFailure("Login failed. Please try again."));
+      dispatch(loginFailure("Login failed. Please try again."), err);
     }
   };
 

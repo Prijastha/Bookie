@@ -33,7 +33,7 @@ const SignupForm = () => {
       reset();
       router.push("/login");
     } catch (err) {
-      dispatch(signupFailure("Sign up failed. Please try again."));
+      dispatch(signupFailure("Sign up failed. Please try again."), err);
     }
   };
   return (
