@@ -1,24 +1,35 @@
-export const loadState = (userEmail: string) => {
+// utils/authStorage.ts
+
+// Load auth state from localStorage
+export const loadState = () => {
   if (typeof window === "undefined") return undefined;
   try {
-    const key = `authState_${userEmail}`;
-    const serializedState = localStorage.getItem(key);
-    if (serializedState === null) {
-      return undefined;
-    }
+    const serializedState = localStorage.getItem("authState");
+    if (serializedState === null) return undefined;
     return JSON.parse(serializedState);
   } catch (err) {
     console.error("Could not load state", err);
     return undefined;
   }
 };
-export const saveState = (userEmail: string, state: any) => {
+
+// Save auth state to localStorage
+export const saveState = (state: any) => {
   if (typeof window === "undefined") return;
   try {
-    const key = `authState_${userEmail}`;
     const serializedState = JSON.stringify(state);
-    localStorage.setItem(key, serializedState);
+    localStorage.setItem("authState", serializedState);
   } catch (err) {
-    console.error("could not save state", err);
+    console.error("Could not save state", err);
+  }
+};
+
+// Clear auth state
+export const clearState = () => {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.removeItem("authState");
+  } catch (err) {
+    console.error("Could not clear state", err);
   }
 };

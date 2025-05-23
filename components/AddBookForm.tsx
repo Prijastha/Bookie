@@ -174,7 +174,7 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
         <label className="block mb-1 font-medium text-gray-800">Status</label>
         <select
           {...register("status")}
-          className="w-full border px-3 py-2 rounded"
+          className="w-full border px-3 py-2 rounded cursor-pointer"
         >
           <option value="To Read">To Read</option>
           <option value="Currently Reading">Currently Reading</option>
@@ -191,7 +191,7 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
           type="file"
           accept="image/*"
           onChange={handleImageChange}
-          className="w-full border px-3 py-2 rounded"
+          className="w-full border px-3 py-2 rounded cursor-pointer"
         />
         {imagePreview && (
           <Image
@@ -207,7 +207,7 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
       <div className="flex gap-2">
         <button
           type="submit"
-          className="px-4 py-2 rounded cursor-pointer bg-amber-400"
+          className="px-4 py-2 rounded cursor-pointer text-white bg-amber-400"
         >
           Add Book
         </button>

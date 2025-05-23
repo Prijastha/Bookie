@@ -40,7 +40,7 @@ const DashboardPage = () => {
           </h1>
           <button
             onClick={handleLogout}
-            className="text-sm text-gray-500  hover:text-red-500 transition"
+            className="text-sm text-gray-500 cursor-pointer hover:text-red-500 transition"
           >
             Logout
           </button>
@@ -49,7 +49,7 @@ const DashboardPage = () => {
           <h2 className="text-lg font-medium mb-4">📚 Your Reading List</h2>
           <button
             onClick={() => setShowForm((prev) => !prev)}
-            className="border px-4 py-2 rounded hover:bg-amber-50 text-sm"
+            className="border px-4 py-2 rounded cursor-pointer hover:bg-amber-50 text-sm "
           >
             {showForm ? "close" : "➕ Add Book"}
           </button>
@@ -66,7 +66,7 @@ const DashboardPage = () => {
             >
               <button
                 onClick={() => setShowForm(false)}
-                className="absolute top-3 right-3 text-gray-500 hover:text-red-500"
+                className="absolute top-3 right-3 text-gray-500 cursor-pointer hover:text-red-500"
               >
                 ✖
               </button>
@@ -140,7 +140,9 @@ const DashboardPage = () => {
                             className="rounded mb-2 object-cover"
                           />
                         )}
-                        <h4 className="text-md font-semibold">{book.title}</h4>
+                        <h4 className="text-md font-semibold text-center">
+                          {book.title}
+                        </h4>
                         <p className="text-sm text-gray-600">
                           by {book.author}
                         </p>
