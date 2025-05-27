@@ -14,7 +14,7 @@ export const loadState = () => {
 };
 
 // Save auth state to localStorage
-export const saveState = (state: any) => {
+export const saveState = (state: unknown) => {
   if (typeof window === "undefined") return;
   try {
     const serializedState = JSON.stringify(state);

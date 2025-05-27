@@ -85,12 +85,12 @@ const SignupForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-amber-800 text-white py-2 rounded cursor-pointer"
+        className="w-full bg-gray-200 py-2 rounded cursor-pointer"
       >
         {isSubmitting ? "Signing up..." : "Sign up"}
       </button>
     </form>
   );
-};
+}; 
 
 export default SignupForm;
