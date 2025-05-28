@@ -11,7 +11,7 @@ import { uuidv4 } from "zod/v4";
 
 type AddBookFormProps = {
   onClose: () => void;
-};
+}; 
 const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
   const dispatch = useDispatch<AppDispatch>();
   const {
@@ -179,7 +179,7 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
           <option value="To Read">To Read</option>
           <option value="Currently Reading">Currently Reading</option>
           <option value="Read">Read</option>
-        </select>
+        </select> 
         {errors.status && (
           <p className="text-red-500 text-sm">{errors.status.message}</p>
         )}
@@ -207,7 +207,7 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
       <div className="flex gap-2">
         <button
           type="submit"
-          className="px-4 py-2 rounded cursor-pointer text-white bg-amber-400"
+          className="px-4 py-2 rounded cursor-pointer bg-amber-100"
         >
           Add Book
         </button>

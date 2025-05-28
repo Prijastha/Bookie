@@ -74,7 +74,6 @@ const DashboardPage = () => {
             </motion.div>
           </div>
         )}
-
         {/* <section>
           {books.length === 0 ? (
             <p className="text-gray-500">No books added yet.</p>
@@ -125,7 +124,6 @@ const DashboardPage = () => {
                         b.genre === book.genre &&
                         b.status === book.status
                     );
-
                     return (
                       <div
                         key={index}
