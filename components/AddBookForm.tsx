@@ -4,14 +4,14 @@ import { addBook } from "@/redux/slices/bookSlice";
 import { AppDispatch } from "@/redux/store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { uuidv4 } from "zod/v4";
 
 type AddBookFormProps = {
   onClose: () => void;
-}; 
+};
 const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
   const dispatch = useDispatch<AppDispatch>();
   const {
@@ -23,7 +23,6 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
     resolver: zodResolver(bookSchema),
   });
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -35,12 +34,10 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
       reader.readAsDataURL(file);
     }
   };
-
   const onSubmit = (data: BookFormInputs) => {
     dispatch(addBook({ ...data, image: imagePreview || "", id: uuidv4() }));
     reset();
     setImagePreview(null);
-
     onClose();
   };
   return (
@@ -143,7 +140,6 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
           <p className="text-sm text-red-500">{errors.title.message}</p>
         )}
       </div>
-
       <div>
         <label className="block mb-1 font-medium text-gray-800">Author</label>
         <input
@@ -156,7 +152,6 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
           <p className="text-red-500 text-sm">{errors.author.message}</p>
         )}
       </div>
-
       <div>
         <label className="block mb-1 font-medium text-gray-800">Genre</label>
         <input
@@ -169,7 +164,6 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
           <p className="text-red-500 text-sm">{errors.genre.message}</p>
         )}
       </div>
-
       <div>
         <label className="block mb-1 font-medium text-gray-800">Status</label>
         <select
@@ -179,12 +173,11 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
           <option value="To Read">To Read</option>
           <option value="Currently Reading">Currently Reading</option>
           <option value="Read">Read</option>
-        </select> 
+        </select>
         {errors.status && (
           <p className="text-red-500 text-sm">{errors.status.message}</p>
         )}
       </div>
-
       <div>
         <label className="block mb-1 font-medium text-gray-800">Image</label>
         <input
@@ -203,7 +196,6 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ onClose }) => {
           />
         )}
       </div>
-
       <div className="flex gap-2">
         <button
           type="submit"

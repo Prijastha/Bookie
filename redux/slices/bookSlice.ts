@@ -11,7 +11,6 @@ export type Book = {
 type BookState = {
   books: Book[];
 };
-
 const initialState: BookState = {
   books:
     typeof window !== "undefined"
